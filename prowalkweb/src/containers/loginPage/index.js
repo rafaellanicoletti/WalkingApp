@@ -1,6 +1,7 @@
 import React from 'react'; 
 import {Component} from 'react';
-import Map from '../../componets/util/map'
+import Map from '../../componets/util/map';
+import { Link } from 'react-router-dom'
 
 
 export default class Home extends Component {
@@ -64,7 +65,11 @@ export default class Home extends Component {
                     <label>Password</label>
                     <input type="password" data-test="password" value={this.state.password} onChange={this.handlePassChange} />
 
-                    <input type="submit" value="Log In" data-test="submit" />
+                    {/* <input type="submit" value="Log In" data-test="submit" /> */}
+
+                    <Link to='/home'>SUBMIT</Link>
+
+
                 </form></div>
                 <div className="map">
                     <Map />
