@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import Map from '../../componets/util/map';
 import Search from '../../componets/util/search';
+// import affiliatesObject from './../../data/walkerInfo/affiliatesInfo.json';
 import {
     geocodeByAddress,
     geocodeByPlaceId,
@@ -14,13 +15,19 @@ export default class HomePage extends Component {
 
         this.state = {
             location: null,
-            address: ""
+            address: "",
+            affiliatesObject: { affiliates: [] },
+            showMarkers: false,
 
         }
     }
     // componentDidMount() {
-        
-
+    //     // Get affiliate from db
+    //     let dataFromDatabase = affiliatesObject;
+    //     console.log(dataFromDatabase)
+    //     this.setState({
+    //         affiliatesObject: dataFromDatabase
+    //     })
     // }
 
     handleCurrentUserLocation = () => {
@@ -28,12 +35,13 @@ export default class HomePage extends Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
                 const { coords } = position;
-console.log(position)
+                console.log(position)
                 this.setState({
                     location: {
                         latitude: coords.latitude,
                         longitude: coords.longitude
-                    }
+                    },
+                    showMarkers: true
                 })
             });
         }
@@ -51,12 +59,19 @@ console.log(position)
     handleSelect = address => {
 
         geocodeByAddress(address)
+            // .then(results => {
+            //     console.log(results)
+            //     return getLatLng(results[0])
+            // })
             .then(results => {
-                console.log(results)
-                getLatLng(results[0])
-            }
-                )
-            .then(latLng =>{
+                console.log(results);
+                let formatedAddress = results[0].formatted_address;
+                this.setState({
+                    address: formatedAddress
+                })
+                return getLatLng(results[0])
+            })
+            .then(latLng => {
                 console.log(latLng)
                 this.setState({
                     location: {
@@ -64,10 +79,10 @@ console.log(position)
                         longitude: latLng.lng
                     }
                 })
-            } )
+            })
 
             .catch(error => console.error('Error', error));
-        
+
     };
 
     render() {
@@ -75,16 +90,21 @@ console.log(position)
             <div>
                 <h1>HOME PAGE</h1>
 
-                <Search 
-                value={this.state.address}
-                onChange={this.handleChange}
-                onSelect={this.handleSelect}
+                <Search
+                    value={this.state.address}
+                    onChange={this.handleChange}
+                    onSelect={this.handleSelect}
                     // onUserLocationInput={this.handleUserLocationInput} 
                     onCurrentUserLocation={this.handleCurrentUserLocation}
-                /> 
+                />
 
                 <div className="map">
-                    <Map location={this.state.location} />
+                    <Map
+                        location={this.state.location}
+                        showMarkers={this.state.showMarkers}
+                        // affiliatesObject={this.state.affiliatesObject}
+                    // defaultCenter={{ lat: this.state.location.latitude, lng: this.state.location.longitude}}
+                    />
                 </div>
             </div>
 
