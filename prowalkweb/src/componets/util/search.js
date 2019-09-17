@@ -19,7 +19,6 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 //     )
 // }
 
-
 export default class LocationSearchInput extends React.Component {
     constructor(props) {
         super(props);
@@ -58,7 +57,7 @@ export default class LocationSearchInput extends React.Component {
                         <div className="autocomplete-dropdown-container">
                             {loading && <div>Loading...</div>}
                             {suggestions.map(suggestion => {
-                               //console.log(suggestions)
+                                //console.log(suggestions)
                                 const className = suggestion.active
                                     ? 'suggestion-item--active'
                                     : 'suggestion-item';

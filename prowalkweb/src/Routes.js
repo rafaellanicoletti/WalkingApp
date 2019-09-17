@@ -27,7 +27,7 @@ function AppRouter() {
 
         <Route path='/' exact component = { Login } />
         <Route path='/home' exact component = { Home } />
-        <Route path='/walker/' component = { WalkerProfile} />
+        <Route path='/walker' component = { WalkerProfile} />
      </div >
     </Router >
  );

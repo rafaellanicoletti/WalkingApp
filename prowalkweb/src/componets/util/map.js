@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
 import affiliatesObject from './../../data/walkerInfo/affiliatesInfo.js';
 export default function Map(props) {
@@ -15,8 +16,10 @@ export default function Map(props) {
             {location && <Marker position={{ lat: location.latitude, lng: location.longitude }} />}
             {
                 showMarkers &&
-                affiliatesObject.affiliates.map(e =>
-                    <Marker sty style={{width:10, height:10, borderRadius: 5,}} icon={e.pictureProfile} key={e.id} position={{ lat: e.latitude, lng: e.longitude }} />
+                affiliatesObject.affiliates.map(affiliate =>
+     
+                        <Marker style={{ width: 2, height: 2, borderRadius: 2, }} icon={affiliate.pictureProfile} key={affiliate.id} position={{ lat: affiliate.latitude, lng: affiliate.longitude }} 
+                        />
                 )
             }
         </GoogleMap>
@@ -24,8 +27,12 @@ export default function Map(props) {
 
     const WrappedMap = withScriptjs(withGoogleMap(Map))
 
+    function MatchWalker({match}){
+        return "walkers/" +`${match.params.id}`
+    };
+    
     return (
-        <div style={{ width: '50vw', height: '50vh' }}>
+        <div style={{ width: '80vw', height: '60vh' }}>
             <WrappedMap googleMapURL={URL}
                 
                 loadingElement={<div style={{ height: "100%" }} />}
