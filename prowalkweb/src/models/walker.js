@@ -1,5 +1,9 @@
 module.exports = function (sequelize, DataTypes) {
 var Walker = sequelize.define("User", {
+    id: {
+        type: DataTypes.INTEGER,
+       
+    },
 
         name: {
             type: DataTypes.STRING,
@@ -33,7 +37,7 @@ var Walker = sequelize.define("User", {
             allowNull: false,
         },
         pictureProfile: {
-            type: DataTypes.STRING,
+            type: DataTypes.pictureProfile,
             allowNull: false,
         },
         latitude: {

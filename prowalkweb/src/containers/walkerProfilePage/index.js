@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
-import Map from '../../componets/util/map'
+import Map from '../../componets/util/map';
+import WalkerCard from '../../componets/util/walkerCard';
 
 
 export default class WalkerPage extends Component {
@@ -12,6 +13,7 @@ export default class WalkerPage extends Component {
                 <div className="map">
                     <Map />
                 </div>
+                <WalkerCard />
             </div>
 
         );
