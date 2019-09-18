@@ -43,12 +43,24 @@ router.post('/signup' , (req,res) => {
 
 // });
 
+router.delete("/:userId", (req,res)=> {
+    User.remove({ _id: req.params.userId})
+    .exec()
+    .then(result => {
+        res.status(200).json({
+            message: "user deleted"
+        });
+    })
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json({
+            error: err
+        });
+    });
+});
+
+
 //NEED TO IMPORT USER ROUTES IN APP.JS
-
-
-
-
-
 
 
 module.exports = router;
