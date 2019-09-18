@@ -24,3 +24,5 @@ function App() {
 }
 
 export default App;
+
+// HOW TO INCLUDE STUFF FROM APP JS
