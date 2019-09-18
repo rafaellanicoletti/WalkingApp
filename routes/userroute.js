@@ -1,22 +1,9 @@
-const express = require ('express');
-const router = express.Router();
 const mongoose = require ('mongoose');
+const User= require ('../models/usermodel');
 
-//const bcrypt = require ('bcrypt');
+module.exports = app => {
 
-const User= require ('...models file user file');
-
-router.post('/signup' , (req,res) => {
-
-    // bcrypt.hash(req.body.email, 10, (err, hash) => {
-            //if (err){
-                //return res.status(500).json({
-                    //error: err
-                // })
-            // } else {
-                // 
-            // }
-
+app.post('/signup' , (req,res) => {
     const user = new User ({
         _id: new mongoose.Types.ObjectId(),
         email: req.body.email,
@@ -41,26 +28,32 @@ router.post('/signup' , (req,res) => {
 
     })
 
-// });
-
-router.delete("/:userId", (req,res)=> {
-    User.remove({ _id: req.params.userId})
-    .exec()
-    .then(result => {
-        res.status(200).json({
-            message: "user deleted"
-        });
+    app.post("/login", (req,res)=> {
+        User.find({ email: req.body.email})
+        .exec()
+        .then(user => {
+            if (user.length < 1){
+                return res.status(404).json({
+                    message: "Mail not found"
+                });
+            }
+            
+        })
     })
-    .catch(err =>{
-        console.log(err);
-        res.status(500).json({
-            error: err
+
+    app.delete("/:userId", (req,res)=> {
+        User.remove({ _id: req.params.userId})
+        .exec()
+        .then(result => {
+            res.status(200).json({
+                message: "user deleted"
+            });
+        })
+        .catch(err =>{
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
         });
     });
-});
-
-
-//NEED TO IMPORT USER ROUTES IN APP.JS
-
-
-module.exports = router;
+}
