@@ -4,7 +4,7 @@ const mongoose = require ('mongoose');
 
 //const bcrypt = require ('bcrypt');
 
-const User= = require ('...models file user file');
+const User= require ('...models file user file');
 
 router.post('/signup' , (req,res) => {
 
