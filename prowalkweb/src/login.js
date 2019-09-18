@@ -42,8 +42,36 @@ export default class Login extends Component {
             })
             .catch(error => {
                 console.log("log in error", error);
-                console.log("log in error")
-            })
+            });
+        event.preventDefault();
+    }
+
+    render() {
+        return (
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                        type= "email"
+                        name = "email"
+                        placeholder= "Email"
+                        value ={this.state.email}
+                        onChange={this.handleChange}
+                        required
+                    />
+
+                    <input 
+                        type= "password"
+                        name= "password"
+                        placeholder= "Password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        required
+                    />
+
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+        )
     }
 }
 
