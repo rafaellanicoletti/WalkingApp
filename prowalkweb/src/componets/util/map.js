@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
-import affiliatesObject from './../../data/walkerInfo/affiliatesInfo.js';
+import affiliatesObject from '../../data/walkerInfo/affiliatesInfo.js';
 export default function Map(props) {
     const { location, showMarkers} = props;
     const key = 'AIzaSyBhHbOzEagXSNiH8ijFeZ415GRo3unB7U4';
@@ -18,7 +18,12 @@ export default function Map(props) {
                 showMarkers &&
                 affiliatesObject.affiliates.map(affiliate =>
      
-                        <Marker style={{ width: 2, height: 2, borderRadius: 2, }} icon={affiliate.pictureProfile} key={affiliate.id} position={{ lat: affiliate.latitude, lng: affiliate.longitude }} 
+                        <Marker 
+                    //     options={{ style: { width: 50, height: 50, borderRadius: 2, }}} 
+                        icon={affiliate.pictureProfile}
+                        onClick={() => window.location.href = "/walker/" + affiliate.id}
+                        key={affiliate.id} 
+                        position={{ lat: affiliate.latitude, lng: affiliate.longitude }} 
                         />
                 )
             }

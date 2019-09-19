@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import Map from '../../componets/util/map';
 import WalkerCard from '../../componets/util/walkerCard';
+// import ServiceConfirmation from '../../componets/util/confirmationAlert'
 
 
 export default class WalkerPage extends Component {
@@ -10,10 +11,11 @@ export default class WalkerPage extends Component {
         return (
             <div>
                 <h1>WALKER PAGE</h1>
-                <div className="map">
+                {/* <div className="map">
                     <Map />
-                </div>
+                </div> */}
                 <WalkerCard />
+                {/* <ServiceConfirmation/> */}
             </div>
 
         );
