@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
-import affiliatesObject from '../../data/walkerInfo/affiliatesInfo.js.js';
+import affiliatesObject from '../../data/walkerInfo/affiliatesInfo.js';
 export default function Map(props) {
     const { location, showMarkers} = props;
     const key = 'AIzaSyBhHbOzEagXSNiH8ijFeZ415GRo3unB7U4';
