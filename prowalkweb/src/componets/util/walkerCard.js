@@ -61,7 +61,7 @@ export default function RecipeReviewCard() {
                         <MoreVertIcon />
                     </IconButton>
                 }
-                title="affiliates.name"
+                title={affiliates.name}
                 subheader="September 14, 2016"
             />
             <CardMedia

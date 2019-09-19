@@ -9,7 +9,7 @@ export default {
            "city": "New York",
            "State": "NY",
            "zipcode": 10023,
-           "pictureProfile": require('./../profilePictures/AndreaLopez.png'),
+           "pictureProfile": require('../profilePictures/AndreaLopez.png'),
            "latitude": 40.463521,
            "longitude": -74.559784
        },
@@ -22,7 +22,7 @@ export default {
            "city": "New York",
            "State": "NY",
            "zipcode": 10019,
-           "pictureProfile": require('./../profilePictures/JamesHain.png'),
+           "pictureProfile": require('../profilePictures/JamesHain.png'),
            "latitude": 40.370799,
            "longitude": -74.374133
        },
@@ -35,7 +35,7 @@ export default {
            "city": "New York",
            "State": "NY",
            "zipcode": 10079,
-           "pictureProfile": require('./../profilePictures/JasonMraz.png'),
+           "pictureProfile": require('../profilePictures/JasonMraz.png'),
            "latitude": 40.399789, 
            "longitude": -74.157977
        },
@@ -48,7 +48,7 @@ export default {
            "city": "New York",
            "State": "NY",
            "zipcode": 10022,
-           "pictureProfile": require('./../profilePictures/KatzopLi.png'),
+           "pictureProfile": require('../profilePictures/KatzopLi.png'),
            "latitude": 40.540691,
            "longitude": -74.199962
        }
