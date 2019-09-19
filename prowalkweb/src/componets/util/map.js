@@ -18,7 +18,12 @@ export default function Map(props) {
                 showMarkers &&
                 affiliatesObject.affiliates.map(affiliate =>
      
-                        <Marker style={{ width: 2, height: 2, borderRadius: 2, }} icon={affiliate.pictureProfile} key={affiliate.id} position={{ lat: affiliate.latitude, lng: affiliate.longitude }} 
+                        <Marker 
+                    //     options={{ style: { width: 50, height: 50, borderRadius: 2, }}} 
+                        icon={affiliate.pictureProfile}
+                        onClick={() => window.location.href = "/walker/" + affiliate.id}
+                        key={affiliate.id} 
+                        position={{ lat: affiliate.latitude, lng: affiliate.longitude }} 
                         />
                 )
             }

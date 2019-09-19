@@ -10,9 +10,9 @@ export default class WalkerPage extends Component {
         return (
             <div>
                 <h1>WALKER PAGE</h1>
-                <div className="map">
+                {/* <div className="map">
                     <Map />
-                </div>
+                </div> */}
                 <WalkerCard />
             </div>
 
