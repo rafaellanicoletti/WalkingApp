@@ -66,8 +66,8 @@ export default class Home extends Component {
                     <input type="password" data-test="password" value={this.state.password} onChange={this.handlePassChange} />
 
                     {/* <input type="submit" value="Log In" data-test="submit" /> */}
-
-                    <Link to='/home'>SUBMIT</Link>
+                    <button type='submit'>Continue</button>
+                    {/* <Link to='/home'>SUBMIT</Link> */}
 
 
                 </form></div>

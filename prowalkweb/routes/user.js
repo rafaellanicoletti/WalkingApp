@@ -9,8 +9,6 @@ app.post('/signup' , (req,res) => {
         email: req.body.email,
         password: req.body.password,
         isLoggedIn: false
-        //node bcrypt to hash the password, will be encrypted npm i bcrypt
-        //password : 
         })
 
         user.save()
@@ -43,7 +41,6 @@ app.post('/signup' , (req,res) => {
                 console.log("query", query)
                 User.update(query, {isLoggedIn: true})
        
-                // User.save()
                     .then(result => {
                         console.log(result);
                         res.status(200).json({
