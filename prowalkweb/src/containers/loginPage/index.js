@@ -2,6 +2,7 @@ import React from 'react';
 import {Component} from 'react';
 import Map from '../../componets/util/map';
 import { Link } from 'react-router-dom'
+import './loginPage.css';
 
 
 export default class Home extends Component {
@@ -50,7 +51,7 @@ export default class Home extends Component {
     render() {
         return(
             <div>
-            
+                {/* adding a login div so I can position it to the left with color gradient */}
                 <div className="login"><form onSubmit={this.handleSubmit}>
                     {
                         this.state.error &&
@@ -59,15 +60,21 @@ export default class Home extends Component {
                             {this.state.error}
                         </h3>
                     }
-                    <label>User Name</label>
-                    <input type="text" data-test="username" value={this.state.username} onChange={this.handleUserChange} />
 
-                    <label>Password</label>
-                    <input type="password" data-test="password" value={this.state.password} onChange={this.handlePassChange} />
+                    {/* adding a usernameDiv so I can position it */}
+                    <div className="usernameDiv">
+                        <input className="loginInput" placeholder="username" type="text" data-test="username" value={this.state.username} onChange={this.handleUserChange} />
+                    </div>
+
+                    {/* adding a passwordDiv */}
+                    <div className="passwordDiv">
+                        <input className="passwordInput" placeholder="password" type="password" data-test="password" value={this.state.password} onChange={this.handlePassChange} />
+                    </div>
 
                     {/* <input type="submit" value="Log In" data-test="submit" /> */}
-
-                    <Link to='/home'>SUBMIT</Link>
+                    <div className="submitDiv">
+                        <Link className="submitDiv2" to='/home'>SUBMIT</Link>
+                    </div>
 
 
                 </form></div>
