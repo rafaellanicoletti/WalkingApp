@@ -27,10 +27,12 @@ export default class WalkerPage extends Component {
         })
         this.setState(
             {
+                pictureprofile: selectedAffiliate.pictureProfile,
                 name: selectedAffiliate.name,
                 occupation: selectedAffiliate.Ocuppation,
                 city: selectedAffiliate.city,
-                description: selectedAffiliate.description
+                description: selectedAffiliate.description,
+
             }
         )
         console.log('selectedAffiliate', selectedAffiliate)
@@ -42,6 +44,7 @@ export default class WalkerPage extends Component {
                 <h1>WALKER PAGE</h1>
                 
                 <WalkerProfile 
+                pictureprofile={this.state.pictureprofile}
                 namexyz= {this.state.name}
                 ocuppationxyz={this.state.occupation}
                 city={this.state.city}

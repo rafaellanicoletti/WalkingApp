@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
 import affiliatesObject from '../../data/walkerInfo/affiliatesInfo.js';
+
 export default function Map(props) {
     const { location, showMarkers} = props;
     const key = 'AIzaSyBhHbOzEagXSNiH8ijFeZ415GRo3unB7U4';
@@ -24,12 +25,35 @@ export default function Map(props) {
                         onClick={() => window.location.href = "/walker/" + affiliate.id}
                         key={affiliate.id} 
                         position={{ lat: affiliate.latitude, lng: affiliate.longitude }} 
+                        style={{ borderRadius: 50 }}
                         />
                 )
             }
         </GoogleMap>
     );
+////////////////////////////////
 
+    // const styles = StyleSheet.create({
+    //     container: {
+    //         zIndex: 9,
+    //         position: 'absolute',
+    //         flexDirection: 'row',
+    //         width: (WIDTH - 40),
+    //         height: 60,
+    //         top: 110,
+    //         left: 20,
+    //         borderRadius: 50, //to curve the edges, of you want to add full circular, add 50
+    //         backgroundColor: 'white',
+    //         alignItems: 'center',
+    //         shadowColor: '#000000',
+    //         elevation: 7,
+    //         shadowRadius: 5,
+    //         shadowOpacity: 1.0,
+    //     },
+       
+    // });
+
+//////////////////////////////
     const WrappedMap = withScriptjs(withGoogleMap(Map))
 
     function MatchWalker({match}){

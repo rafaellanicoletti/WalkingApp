@@ -7,6 +7,7 @@ export default function walkerOverlay (props) {
     return (
         <div className="walkerCard">
             <Headshot 
+            pictureprofile={props.pictureprofile}
             walkername= {props.namexyz}
             ocuppation={props.ocuppationxyz} 
             city={props.city}
