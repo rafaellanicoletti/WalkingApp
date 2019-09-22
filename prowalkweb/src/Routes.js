@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './containers/homePage';
 import Login from './containers/loginPage';
+import LogoutPage from './containers/logoutPage'
 import WalkerProfile from './containers/walkerProfilePage';
 
 
@@ -14,7 +15,7 @@ function AppRouter() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to='/'>loginPage</Link>
+                            <Link to='/login/'>login Page</Link>
                         </li>
                         <li>
                             <Link to='/home/'>Home Page</Link>
@@ -22,11 +23,15 @@ function AppRouter() {
                         <li>
                             <Link to='/walker/'>Walker Profile</Link>
                         </li>
+                        <li>
+                            <Link to='/logout/'>Log Out</Link>
+                        </li>
                     </ul>
             </nav >
 
-        <Route path='/' exact component = { Login } />
+        <Route path='/login' exact component = { Login } />
         <Route path='/home' exact component = { Home } />
+        <Route path='/logout' exact component = { LogoutPage } />
         <Route path='/walker' component = { WalkerProfile} />
      </div >
     </Router >
