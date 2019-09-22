@@ -11,7 +11,8 @@
             "zipcode": 10023,
             "pictureProfile": "./",
             "latitude": 40.463521,
-            "longitude": -74.559784
+            "longitude": -74.559784,
+            "description": "I am a nice walker......1"
         },
         {
             "id": 2,
@@ -24,7 +25,8 @@
             "zipcode": 10019,
             "pictureProfile": "./",
             "latitude": 40.370799,
-            "longitude": -74.374133
+            "longitude": -74.374133,
+            "description": "I am a nice walker......2"
         },
         {
             "id": 3,
@@ -37,7 +39,8 @@
             "zipcode": 10079,
             "pictureProfile": "./",
             "latitude": 40.399789, 
-            "longitude": -74.157977
+            "longitude": -74.157977,
+            "description": "I am a nice walker......3"
         },
         {
             "id": 4,
@@ -50,7 +53,8 @@
             "zipcode": 10022,
             "pictureProfile": "./",
             "latitude": 40.540691,
-            "longitude": -74.199962
+            "longitude": -74.199962,
+            "description": "I am a nice walker......4"
         }
     ]
 }

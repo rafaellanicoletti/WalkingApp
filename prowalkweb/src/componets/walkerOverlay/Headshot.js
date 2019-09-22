@@ -1,13 +1,14 @@
 import React from 'react'
-export default function Headshot () {
+
+
+export default function Headshot (props) {
     return (
         <div className= "headshotBigDiv">
         <img src="../AndreaLopez.png" className="profilePic" />
-        <p>John Smith</p>
-        <p>New York, NY</p>
-        <p>Age: 24</p>
+        <p>{props.walkername}</p>
+        <p>{props.ocuppation}</p>
+        <p>{props.city}</p>
         </div>
-
-
+        
     )
 }
