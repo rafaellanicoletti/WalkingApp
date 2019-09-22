@@ -1,23 +1,5 @@
 import React from 'react';
 import PlacesAutocomplete from 'react-places-autocomplete';
-// import {
-//     geocodeByAddress,
-//     geocodeByPlaceId,
-//     getLatLng,
-// } from 'react-places-autocomplete';
-
-
-// export default function search(props) {
-//     const { onUserLocationInput, onCurrentUserLocation } = props;
-
-
-//     return (
-//         <div>
-//             <input type="text" onChange={onUserLocationInput}></input>
-//             <button style={{position: 'absolute'}}onClick={onCurrentUserLocation}>Location</button>
-//         </div>
-//     )
-// }
 
 export default class LocationSearchInput extends React.Component {
     constructor(props) {
@@ -25,29 +7,20 @@ export default class LocationSearchInput extends React.Component {
         this.state = { address: '' };
     }
 
-    // handleChange = address => {
-    //     this.setState({ address });
-    // };
-
-    // handleSelect = address => {
-    //     geocodeByAddress(address)
-    //         .then(results => getLatLng(results[0]))
-    //         .then(latLng => console.log('Success', latLng))
-    //         .catch(error => console.error('Error', error));
-    // };
-
     render() {
         return (
             <PlacesAutocomplete
-                // value={this.state.address}
-                // onChange={this.handleChange}
-                // onSelect={this.handleSelect}
+                
                 value={this.props.value}
                 onChange={this.props.onChange}
                 onSelect={this.props.onSelect}
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                     <div>
+                        <div>
+                            <p>Search for Service Location</p>
+                        </div>
+                        
                         <input
                             {...getInputProps({
                                 placeholder: 'Search Places ...',
@@ -77,7 +50,8 @@ export default class LocationSearchInput extends React.Component {
                                 );
                             })}
                         </div>
-                        <button onClick={this.props.onCurrentUserLocation}>Location</button>
+                        <p>Or select your current location</p>
+                        <button onClick={this.props.onCurrentUserLocation}>Current Location</button>
                         <div>
                         </div>
                     </div>
