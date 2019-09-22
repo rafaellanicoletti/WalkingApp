@@ -1,7 +1,7 @@
 import React from 'react'
 import './walkerOverlay.css';
 
-export default function Buttonbox () {
+export default function Buttonbox (props) {
     return (
         <div className="buttonBox">
         
@@ -19,6 +19,9 @@ export default function Buttonbox () {
             <div className="btn3"> 
                 <img src="../walkingIcon.png" className="walkBtn" />
                 <p>45 minutes</p>
+            </div>
+            <div>
+                <p>{props.description}</p>
             </div>
             
 

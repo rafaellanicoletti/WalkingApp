@@ -11,7 +11,8 @@ export default {
            "zipcode": 10023,
            "pictureProfile": require('../profilePictures/AndreaLopez.png'),
            "latitude": 40.463521,
-           "longitude": -74.559784
+           "longitude": -74.559784, 
+           "description": "Im a nice walker 1 "
        },
        {
            "id": 2,
@@ -24,7 +25,8 @@ export default {
            "zipcode": 10019,
            "pictureProfile": require('../profilePictures/JamesHain.png'),
            "latitude": 40.370799,
-           "longitude": -74.374133
+           "longitude": -74.374133, 
+           "description": "Im a nice walker 2 "
        },
        {
            "id": 3,
@@ -37,7 +39,8 @@ export default {
            "zipcode": 10079,
            "pictureProfile": require('../profilePictures/JasonMraz.png'),
            "latitude": 40.399789, 
-           "longitude": -74.157977
+           "longitude": -74.157977,
+           "description" : "Im a nice walker 3"
        },
        {
            "id": 4,
@@ -50,7 +53,8 @@ export default {
            "zipcode": 10022,
            "pictureProfile": require('../profilePictures/KatzopLi.png'),
            "latitude": 40.540691,
-           "longitude": -74.199962
+           "longitude": -74.199962,
+           "description": "Im a nice walker 4 "
        }
    ]
 }
