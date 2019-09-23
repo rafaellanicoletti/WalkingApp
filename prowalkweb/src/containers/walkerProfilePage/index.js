@@ -4,7 +4,8 @@ import Map from '../../componets/util/map';
 import WalkerProfile from '../../componets/walkerOverlay';
 // import WalkConfirmation from '../../componets/util/walkConfirmation';
 import walkerData from '../../data/walkerInfo/affiliatesInfo';
-import AlertService from '../../componets/util/alertServiceintheway'
+import AlertService from '../../componets/util/alertServiceintheway';
+import Rating from '../../componets/util/rating'
 
 
 // import ServiceConfirmation from '../../componets/util/confirmationAlert'
@@ -61,6 +62,9 @@ export default class WalkerPage extends Component {
                 </div> */}
                 <div>
                     <AlertService />
+                </div>
+                <div>
+                    <Rating />
                 </div>
             </div>
 
