@@ -99,9 +99,11 @@ export default class Home extends Component {
                     </div>
 
                     {/* <input type="submit" value="Log In" data-test="submit" /> */}
-                    <div className="submitDiv">
+                    {/* <div className="submitDiv">
                         <Link className="submitDiv2" to='/home'>SUBMIT</Link>
-                    </div>
+                    </div> */}
+
+                    <input className="submitDiv2" value="Submit" type="submit" />
 
 
                 </form></div>

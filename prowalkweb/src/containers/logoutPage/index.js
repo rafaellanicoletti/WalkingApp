@@ -6,8 +6,8 @@ export default class LogoutPage extends Component {
     render() {
         return(
             <div>
-            {window.localStorage.clear}
-                <h1>YOURE Fing Logged OUT!</h1>
+            {window.localStorage.clear()}
+                <h1>YOURE Logged OUT!</h1>
             </div>
         )
     }
