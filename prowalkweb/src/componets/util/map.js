@@ -21,39 +21,18 @@ export default function Map(props) {
      
                         <Marker 
                     //     options={{ style: { width: 50, height: 50, borderRadius: 2, }}} 
-                        icon={affiliate.pictureProfile}
+                        icon={{ url: affiliate.pictureProfile, anchor: { x: 10, y: 10 }, scaledSize: { width: 40, height: 30 }, borderRadius:50}}
                         onClick={() => window.location.href = "/walker/" + affiliate.id}
                         key={affiliate.id} 
                         position={{ lat: affiliate.latitude, lng: affiliate.longitude }} 
-                        style={{ borderRadius: 50 }}
+                       
                         />
                 )
             }
         </GoogleMap>
     );
-////////////////////////////////
 
-    // const styles = StyleSheet.create({
-    //     container: {
-    //         zIndex: 9,
-    //         position: 'absolute',
-    //         flexDirection: 'row',
-    //         width: (WIDTH - 40),
-    //         height: 60,
-    //         top: 110,
-    //         left: 20,
-    //         borderRadius: 50, //to curve the edges, of you want to add full circular, add 50
-    //         backgroundColor: 'white',
-    //         alignItems: 'center',
-    //         shadowColor: '#000000',
-    //         elevation: 7,
-    //         shadowRadius: 5,
-    //         shadowOpacity: 1.0,
-    //     },
-       
-    // });
-
-//////////////////////////////
+ 
     const WrappedMap = withScriptjs(withGoogleMap(Map))
 
     function MatchWalker({match}){
