@@ -10,7 +10,7 @@ export default class LocationSearchInput extends React.Component {
     render() {
         return (
             <PlacesAutocomplete
-                
+
                 value={this.props.value}
                 onChange={this.props.onChange}
                 onSelect={this.props.onSelect}
@@ -20,7 +20,7 @@ export default class LocationSearchInput extends React.Component {
                         <div>
                             <p>Search for Service Location</p>
                         </div>
-                        
+
                         <input
                             {...getInputProps({
                                 placeholder: 'Search Places ...',

@@ -8,6 +8,7 @@
     "@mobiscroll/react-lite": "^4.8.1",
     "clsx": "^1.0.4",
     "react": "^16.9.0",
+    "react-confirm-alert": "^2.4.1",
     "react-dom": "^16.9.0",
     "react-google-maps": "^9.4.5",
     "react-places-autocomplete": "^7.2.1",
