@@ -17,7 +17,7 @@ export default class App extends React.Component {
             buttons: [
                 {
                     label: 'Yes',
-                    onClick: () => alert('GET READY FOR YOUR SERVICE, YOUR WALKER IS ON THE WAY!')
+                    onClick: () => alert('GET READY FOR YOUR SERVICE, YOUR WALKER WILL ARRIVE IN 20 MIN!')
                 },
                 {
                     label: 'No',
