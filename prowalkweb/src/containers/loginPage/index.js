@@ -3,7 +3,7 @@ import {Component} from 'react';
 import axios from 'axios';
 import Map from '../../componets/util/map';
 import { Link, Redirect } from 'react-router-dom';
-
+import './loginPage.css';
 
 export default class Home extends Component {
     constructor(props) {
@@ -84,15 +84,24 @@ export default class Home extends Component {
                             {this.state.error}
                         </h3>
                     }
-                    <label>User Name</label>
-                    <input type="text" data-test="username" value={this.state.username} onChange={this.handleUserChange} />
 
-                    <label>Password</label>
-                    <input type="password" data-test="password" value={this.state.password} onChange={this.handlePassChange} />
+                    {/* adding a usernameDiv so I can position it */}
+                    <div className="usernameDiv">
+                        <input className="loginInput" placeholder="username" type="text" data-test="username" value={this.state.username} onChange={this.handleUserChange} />
+                    </div>
 
                     {/* <input type="submit" value="Log In" data-test="submit" /> */}
-                    <button type='submit'>Continue</button>
+                    {/* <button type='submit'>Continue</button> this button was used previously just keeping it here in case something doesnt work. */}  
                     {/* <Link to='/home'>SUBMIT</Link> */}
+                    {/* adding a passwordDiv */}
+                    <div className="passwordDiv">
+                        <input className="passwordInput" placeholder="password" type="password" data-test="password" value={this.state.password} onChange={this.handlePassChange} />
+                    </div>
+
+                    {/* <input type="submit" value="Log In" data-test="submit" /> */}
+                    <div className="submitDiv">
+                        <Link className="submitDiv2" to='/home'>SUBMIT</Link>
+                    </div>
 
 
                 </form></div>
