@@ -1,6 +1,5 @@
 import React from 'react';
 import { Component } from 'react';
-import { Redirect } from 'react-router-dom'
 import Map from '../../componets/util/map';
 import Search from '../../componets/util/search';
 // import affiliatesObject from './../../data/walkerInfo/affiliatesInfo.json';
@@ -19,30 +18,17 @@ export default class HomePage extends Component {
             address: "",
             affiliatesObject: { affiliates: [] },
             showMarkers: false,
-            redirect: false
 
         }
     }
-    componentDidMount() {
-        // Get affiliate from db
-        // let dataFromDatabase = affiliatesObject;
-        // console.log(dataFromDatabase)
-        // this.setState({
-        //     affiliatesObject: dataFromDatabase
-        // })
-        const user = JSON.parse(window.localStorage.getItem('user'))
-        if (!user){
-            this.setState({redirect: true})
-        }
-    }
-    
-
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/login' />
-    }
-  }
-
+    // componentDidMount() {
+    //     // Get affiliate from db
+    //     let dataFromDatabase = affiliatesObject;
+    //     console.log(dataFromDatabase)
+    //     this.setState({
+    //         affiliatesObject: dataFromDatabase
+    //     })
+    // }
 
     handleCurrentUserLocation = () => {
         console.log('clicked')
@@ -102,7 +88,6 @@ export default class HomePage extends Component {
     render() {
         return (
             <div>
-                {this.renderRedirect()}
                 <h1>HOME PAGE</h1>
 
                 <Search
@@ -126,5 +111,4 @@ export default class HomePage extends Component {
         );
     }
 }
-
 
