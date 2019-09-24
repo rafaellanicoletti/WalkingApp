@@ -1,9 +1,9 @@
 import React from 'react'; 
 import {Component} from 'react';
+import axios from 'axios';
 import Map from '../../componets/util/map';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom';
 import './loginPage.css';
-
 
 export default class Home extends Component {
     constructor(props) {
@@ -11,7 +11,8 @@ export default class Home extends Component {
         this.state = {
             username: "", 
             password: "",
-            error:""
+            error:"",
+            redirect: false
          };
         this.handlePassChange = this.handlePassChange.bind(this);
         this.handleUserChange = this.handleUserChange.bind(this);
@@ -22,6 +23,18 @@ export default class Home extends Component {
         this.setState({ error: '' });
     }
 
+    componentDidMount(){ 
+        const user = JSON.parse(window.localStorage.getItem('user'))
+        if(user){
+            this.setState({redirect: true})
+        }
+    }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/home' />
+    }
+  }
 
     handleSubmit(evt) {
         evt.preventDefault();
@@ -34,6 +47,17 @@ export default class Home extends Component {
             return this.setState({ error: 'Password is required' });
         }
 
+        axios.post("/login", 
+            {
+                email: this.state.username, 
+                password: this.state.password, 
+                isLoggedIn: true
+            }).then( response =>{
+                window.localStorage.setItem('user', response.config.data);
+                this.setState({ redirect: true })
+            }).catch( error => {
+                return this.setState({ error: 'Username or Password is Incorrect' });
+            })
         return this.setState({ error: '' });
     }
     handleUserChange(evt) {
@@ -51,7 +75,7 @@ export default class Home extends Component {
     render() {
         return(
             <div>
-                {/* adding a login div so I can position it to the left with color gradient */}
+                {this.renderRedirect()}
                 <div className="login"><form onSubmit={this.handleSubmit}>
                     {
                         this.state.error &&
@@ -66,15 +90,20 @@ export default class Home extends Component {
                         <input className="loginInput" placeholder="username" type="text" data-test="username" value={this.state.username} onChange={this.handleUserChange} />
                     </div>
 
+                    {/* <input type="submit" value="Log In" data-test="submit" /> */}
+                    {/* <button type='submit'>Continue</button> this button was used previously just keeping it here in case something doesnt work. */}  
+                    {/* <Link to='/home'>SUBMIT</Link> */}
                     {/* adding a passwordDiv */}
                     <div className="passwordDiv">
                         <input className="passwordInput" placeholder="password" type="password" data-test="password" value={this.state.password} onChange={this.handlePassChange} />
                     </div>
 
                     {/* <input type="submit" value="Log In" data-test="submit" /> */}
-                    <div className="submitDiv">
+                    {/* <div className="submitDiv">
                         <Link className="submitDiv2" to='/home'>SUBMIT</Link>
-                    </div>
+                    </div> */}
+
+                    <input className="submitDiv2" value="Submit" type="submit" />
 
 
                 </form></div>
