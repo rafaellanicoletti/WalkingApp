@@ -5,7 +5,8 @@ import WalkerProfile from '../../componets/walkerOverlay';
 // import WalkConfirmation from '../../componets/util/walkConfirmation';
 import walkerData from '../../data/walkerInfo/affiliatesInfo';
 import AlertService from '../../componets/util/alertServiceintheway';
-import Rating from '../../componets/util/rating'
+import Rating from '../../componets/util/rating';
+import Timer from '../../componets/util/timer'
 
 
 // import ServiceConfirmation from '../../componets/util/confirmationAlert'
@@ -65,6 +66,9 @@ export default class WalkerPage extends Component {
                 </div>
                 <div>
                     <Rating />
+                </div>
+                <div>
+                    <Timer />
                 </div>
             </div>
 
