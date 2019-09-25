@@ -2,9 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
 import affiliatesObject from '../../data/walkerInfo/affiliatesInfo.js';
+import Addressline from '../util/addressline'
 
 export default function Map(props) {
-    const { location, showMarkers} = props;
+    const { location, showMarkers, showline} = props;
     const key = 'AIzaSyBhHbOzEagXSNiH8ijFeZ415GRo3unB7U4';
     const URL = `https://maps.googleapis.com/maps/api/js?key=${key}&v=3.exp&libraries=geometry,drawing,places`
 
@@ -22,12 +23,23 @@ export default function Map(props) {
                         <Marker 
                     //     options={{ style: { width: 50, height: 50, borderRadius: 2, }}} 
                         icon={{ url: affiliate.pictureProfile, anchor: { x: 10, y: 10 }, scaledSize: { width: 40, height: 30 }, borderRadius:50}}
-                        onClick={() => window.location.href = "/walker/" + affiliate.id}
+                        onClick={() => {
+
+                            window.location.href = "/walker/" + affiliate.id;
+                        }}
                         key={affiliate.id} 
                         position={{ lat: affiliate.latitude, lng: affiliate.longitude }} 
                        
                         />
                 )
+            }
+            {
+                showline && 
+                <Addressline location={{ lat: props.latitude, lng: props.longitude}} 
+                affiliate={{
+                "lat": props.affiliateslatitude,
+                    "lng": props.affiliateslongitude,
+            }} />
             }
         </GoogleMap>
     );
@@ -48,6 +60,7 @@ export default function Map(props) {
                 mapElement={<div style={{ height: "100%" }} />}
             />
 
+            
         </div>
     );
 }
