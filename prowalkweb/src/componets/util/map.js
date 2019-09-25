@@ -5,7 +5,7 @@ import affiliatesObject from '../../data/walkerInfo/affiliatesInfo.js';
 import Addressline from '../util/addressline'
 
 export default function Map(props) {
-    const { location, showMarkers} = props;
+    const { location, showMarkers, showline} = props;
     const key = 'AIzaSyBhHbOzEagXSNiH8ijFeZ415GRo3unB7U4';
     const URL = `https://maps.googleapis.com/maps/api/js?key=${key}&v=3.exp&libraries=geometry,drawing,places`
 
@@ -33,10 +33,14 @@ export default function Map(props) {
                         />
                 )
             }
-            <Addressline location={{ lat: 40.730610, lng: -73.935242 }} affiliate={{
-                "lat": 40.760663,
-                "lng": -73.971879,
+            {
+                showline && 
+                <Addressline location={{ lat: props.latitude, lng: props.longitude}} 
+                affiliate={{
+                "lat": props.affiliateslatitude,
+                    "lng": props.affiliateslongitude,
             }} />
+            }
         </GoogleMap>
     );
 

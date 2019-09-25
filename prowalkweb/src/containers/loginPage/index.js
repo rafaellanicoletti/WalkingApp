@@ -3,6 +3,7 @@ import {Component} from 'react';
 import Map from '../../componets/util/map';
 import { Link } from 'react-router-dom'
 import './loginPage.css';
+// import DuringWalk from '../../componets/util/duringthewalk'
 
 
 export default class Home extends Component {
@@ -81,6 +82,9 @@ export default class Home extends Component {
                 <div className="map">
                     <Map />
                 </div>  
+                <div>
+                    {/* <DuringWalk/> */}
+                </div>
             </div>
 
         );

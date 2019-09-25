@@ -35,6 +35,7 @@ export default class HomePage extends Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
                 const { coords } = position;
+                
                 console.log(position)
                 this.setState({
                     location: {
@@ -42,7 +43,11 @@ export default class HomePage extends Component {
                         longitude: coords.longitude
                     },
                     showMarkers: true
-                })
+                },
+                () => {
+                    localStorage.setItem('position',JSON.stringify(this.state.location))
+                }
+                )
             });
         }
     }
