@@ -7,16 +7,13 @@ app.post('/signup' , (req,res) => {
     const user = new User ({
         _id: new mongoose.Types.ObjectId(),
         email: req.body.email,
-        password: req.body.password,
-        isLoggedIn: false
+        password: req.body.password
         })
 
         user.save()
         .then(result => {
             console.log(result);
-            res.status(201).json({
-                message: 'User created'
-            })
+            res.status(201).json(user)
         })
         .catch(err => {
             console.log(err);

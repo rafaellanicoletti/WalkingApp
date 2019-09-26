@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import Map from '../../componets/util/map';
 import WalkerProfile from '../../componets/walkerOverlay';
 // import WalkConfirmation from '../../componets/util/walkConfirmation';
@@ -11,8 +12,11 @@ import AlertService from '../../componets/util/alertServiceintheway'
 
 
 export default class WalkerPage extends Component {
-    state={}
+    state={
+        redirect: false
+    }
     componentDidMount(){
+
         console.log(window.location.pathname)
         var pathname = window.location.pathname
         var id = pathname.split("/")[pathname.split("/").length-1]
@@ -26,21 +30,30 @@ export default class WalkerPage extends Component {
                 selectedAffiliate= e
             }
         })
-        this.setState(
-            {
+        const user = JSON.parse(window.localStorage.getItem('user'))
+        if (!user) {
+            this.setState({ 
+
+                redirect: true,
                 pictureprofile: selectedAffiliate.pictureProfile,
                 name: selectedAffiliate.name,
                 occupation: selectedAffiliate.Ocuppation,
                 city: selectedAffiliate.city,
-                description: selectedAffiliate.description,
-
-            }
-        )
+                description: selectedAffiliate.description 
+            })
+        }
         console.log('selectedAffiliate', selectedAffiliate)
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/login' />
+        }
     }
     render() {
         return (
             <div>
+                {this.renderRedirect()}
                 <div>
                 <h1>WALKER PAGE</h1>
                 
