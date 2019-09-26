@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import Map from '../../componets/util/map';
 import WalkerProfile from '../../componets/walkerOverlay';
 // import WalkConfirmation from '../../componets/util/walkConfirmation';
@@ -14,11 +15,10 @@ import Timer from '../../componets/util/timer';
 
 export default class WalkerPage extends Component {
     state={
-        showline: false, 
-        selectedAffiliate: {},
-        userposition: {}
+        redirect: false
     }
     componentDidMount(){
+
         console.log(window.location.pathname)
         var pathname = window.location.pathname
         var id = pathname.split("/")[pathname.split("/").length-1]
@@ -32,45 +32,30 @@ export default class WalkerPage extends Component {
                 selectedAffiliate= e
             }
         })
-        
-        let userposition = JSON.parse(localStorage.getItem('position'))
+        const user = JSON.parse(window.localStorage.getItem('user'))
+        if (!user) {
+            this.setState({ 
 
-
-
-        this.setState(
-            {
+                redirect: true,
                 pictureprofile: selectedAffiliate.pictureProfile,
                 name: selectedAffiliate.name,
                 occupation: selectedAffiliate.Ocuppation,
                 city: selectedAffiliate.city,
-                description: selectedAffiliate.description,
-                selectedAffiliate,
-                userposition
-
-            }
-        )
+                description: selectedAffiliate.description 
+            })
+        }
         console.log('selectedAffiliate', selectedAffiliate)
     }
 
-    showline= () => {
-        this.setState({
-            showline: true
-        }, 
-
-        () => {
-            alert('GET READY FOR YOUR SERVICE, YOUR WALKER WILL ARRIVE IN 20 MIN!')
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/login' />
         }
-        
-        )
-
-
     }
-
-
-
     render() {
         return (
             <div>
+                {this.renderRedirect()}
                 <div>
                 <h1>WALKER PAGE</h1>
                 

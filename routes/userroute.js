@@ -7,18 +7,20 @@ app.post('/signup' , (req,res) => {
     const user = new User ({
         _id: new mongoose.Types.ObjectId(),
         email: req.body.email,
+<<<<<<< HEAD
+        password: req.body.password
+=======
         password: req.body.password,
         isLoggedIn: false
         //node bcrypt to hash the password, will be encrypted npm i bcrypt
         //password : 
+>>>>>>> master
         })
 
         user.save()
         .then(result => {
             console.log(result);
-            res.status(201).json({
-                message: 'User created'
-            })
+            res.status(201).json(user)
         })
         .catch(err => {
             console.log(err);
